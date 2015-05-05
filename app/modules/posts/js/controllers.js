@@ -1,4 +1,3 @@
-(function()){
 'use strict';
 
  var mainControllerModule = angular.module('PostMan.posts.controllers', []);
@@ -30,5 +29,5 @@ var postDetailsController = function($stateParams, $state, $scope, postService){
 };
 
 
-}
+
 
