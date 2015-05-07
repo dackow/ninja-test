@@ -1,6 +1,6 @@
-var postManModule = angular.module('PostMan.posts', ['PostMan.posts.controllers','ui.router']);
+var postManModule = angular.module('PostMan.posts', ['PostMan.posts.controllers','ui.router','PostMan.base']);
 
-postManModule.config(['$stateProvider','$locationProvider',function ($stateProvider,$locationProvider, PostController, PostDetailsController) {
+postManModule.config(['$stateProvider','$locationProvider','RoutingProvider',function ($stateProvider,$locationProvider, RoutingProvider, PostController, PostDetailsController) {
 	var states = [
 	{
 		name: 'allPosts',
@@ -16,19 +16,21 @@ postManModule.config(['$stateProvider','$locationProvider',function ($stateProvi
 	},
 	];
 
+	RoutingProvider.populateStates(states);
+	// MyFactoryProvider.BaseFunctionality.populateStates(states);
 	// BaseValue.populateStates(states);
 	// var injector = angular.injector(['PostMan.base']);
 	// var base = injector.get('BaseFunctionality');
 	// base.BaseFunctionality.populateStates(states, $stateProvider);
 
 	//BaseProvider.BaseFunctionality(states);
-	states.forEach(function(item){
-		$stateProvider.state(item.name, {
-			url: item.url,
-			templateUrl: item.templateUrl,
-			controller: item.controller
-		})
-	});
+	// states.forEach(function(item){
+	// 	$stateProvider.state(item.name, {
+	// 		url: item.url,
+	// 		templateUrl: item.templateUrl,
+	// 		controller: item.controller
+	// 	})
+	// });
 
 
 	// $stateProvider.state('allPosts', {

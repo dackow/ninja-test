@@ -1,49 +1,29 @@
 'use strict';
 
-var postManBase = angular.module('PostMan.base', ['ui.router']);
 
-/*var postManBaseValue = angular.value('BaseValue', {
-	populateStates : function(states){
-				states.forEach(function(item){
-			$stateProvider.state(item.name, {
-				url: item.url,
-				templateUrl: item.templateUrl,
-				controller: item.controller
-			});
-		});
-	}
+var postManBaseFactory = postManBase.provider('Routing', function($stateProvider){
+
+ var vm = this;
+ vm.populateStates = populateStates;
+
+function populateStates(states) {
+	states.forEach(function(item){
+		$stateProvider.state(item.name, {
+			url: item.url,
+			templateUrl: item.templateUrl,
+			controller: item.controller
+		});			
 	});
-*/
 
-var postManBaseFactory = postManBase.factory('MyFactory', function(){
-	var _service = {};
+}
 
-	_service.populateStates = function(states){
-		states.forEach(function(item){
-			console.log(item|json);
-		});
-	}
+this.$get = function() {
+	return vm;
+}
 
-	return _service;
 });
 
-// var postManBaseFactory = postManBase.factory('Base', function(){
-// 	var baseFunctionality = {};
 
-// 	baseFunctionality.populateStates = function(states){
-// 		states.forEach(function(item){
-// 			$stateProvider.state(item.name, {
-// 				url: item.url,
-// 				templateUrl: item.templateUrl,
-// 				controller: item.controller
-// 			});
-// 		});
-// 	};
-
-// 	return {
-// 		BaseFunctionality: baseFunctionality
-// 	}
-// });
 
 
 
