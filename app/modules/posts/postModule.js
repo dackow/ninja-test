@@ -1,6 +1,6 @@
 var postManModule = angular.module('PostMan.posts', ['PostMan.posts.controllers','ui.router','PostMan.base']);
 
-postManModule.config(['$stateProvider','$locationProvider','RoutingProvider',function ($stateProvider,$locationProvider, RoutingProvider, PostController, PostDetailsController) {
+postManModule.config(['$stateProvider','$locationProvider','RoutingHelperProvider',function ($stateProvider,$locationProvider, RoutingHelperProvider, PostController, PostDetailsController) {
 	var states = [
 	{
 		name: 'allPosts',
@@ -16,7 +16,7 @@ postManModule.config(['$stateProvider','$locationProvider','RoutingProvider',fun
 	},
 	];
 
-	RoutingProvider.populateStates(states);
+	RoutingHelperProvider.populateStates(states);
 	// MyFactoryProvider.BaseFunctionality.populateStates(states);
 	// BaseValue.populateStates(states);
 	// var injector = angular.injector(['PostMan.base']);

@@ -1,7 +1,8 @@
 'use strict';
 
 
-var postManBaseFactory = postManBase.provider('Routing', function($stateProvider){
+var postManBase = angular.module('PostMan.base', []);
+var postManBaseFactory = postManBase.provider('RoutingHelper', ['$stateProvider', function($stateProvider){
 
  var vm = this;
  vm.populateStates = populateStates;
@@ -21,7 +22,7 @@ this.$get = function() {
 	return vm;
 }
 
-});
+}]);
 
 
 
