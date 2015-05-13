@@ -1,5 +1,6 @@
     'use strict';
     angular.module('PostMan.posts.services', []).factory('postService', function () {
+        var next_index;
         return {
             posts: [{
                 id: 1,
@@ -10,7 +11,7 @@
                 datePublished: '2015-05-04'
             },
             {
-                id: 1,
+                id: 2,
                 title: 'Sample title 1',
                 content: 'Sample content 1',
                 permalink: 'sample-title-1',
@@ -18,7 +19,7 @@
                 datePublished: '2015-05-04'
             },
             {
-                id: 1,
+                id: 3,
                 title: 'Sample title 1',
                 content: 'Sample content 1',
                 permalink: 'sample-title-1',
@@ -35,8 +36,29 @@
                         return this.posts[i];
                     }
                 }
+            },
+            updatePost: function(post){
+                for (var i in this.posts) {
+                    if (this.posts[i].id == post.id) {
+                        this.posts.splice( this.posts.indexOf(this.post[i]), 1 );
+                        this.posts.push(post);
+                    }
+                }
+            },
+            savePost: function(post){
+                post.id = next_index++;
+                this.posts.push(post);
+            },
+
+            deletePost: function(post)  {
+                for (var i in this.posts) {
+                    if (this.posts[i].id == id) {
+                        delete this.posts[i];
+                    }
+                }                
             }
         }
+
     })
 
 
