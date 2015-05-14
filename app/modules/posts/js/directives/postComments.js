@@ -3,8 +3,10 @@
 
 var linkFunction = function(scope, elem, attrs, postService){
 	scope.saveComment=function(){
-		var postID = scope.postInstance.id;
-
+		var post = postService.getPostById(scope.postInstance.id);
+		var newComment = new Comment(scope.comment.author, scope.comment.comment);
+		post.addComment(newComment);
+		scope.comment = {};
 
 		// var postID=scope.postInstance._id, savedPostInstance={};
 		// scope.comment.datePublished = new Date(); 
@@ -29,11 +31,4 @@ var commentsDir = function(){
 };
 
 angular.module('PostMan.posts.directives').directive('postComments', commentsDir);
-
-
-// angular.module('PostMan.posts.directives').directive('postComments', function() {
-// 	return {
-// 		template: 'Name: {{customer.name}} Address: {{customer.address}}'
-// 	};
-// });
 

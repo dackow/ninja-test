@@ -23,7 +23,7 @@ Post.prototype.log2console = function() {
 
 	console.log('Comment');
 	for (var i = this.comments.length - 1; i >= 0; i--) {
-		console.log(this.comments[i]);
+		console.log(this.comments[i].print());
 	};
 };
 
