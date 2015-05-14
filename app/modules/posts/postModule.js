@@ -1,4 +1,4 @@
-var postManModule = angular.module('PostMan.posts', ['PostMan.posts.controllers','ui.router','PostMan.base']);
+var postManModule = angular.module('PostMan.posts', ['PostMan.posts.controllers','ui.router','PostMan.base','PostMan.posts.directives']);
 
 postManModule.config(['$stateProvider','$locationProvider','RoutingHelperProvider',function ($stateProvider,$locationProvider, RoutingHelperProvider, PostController, PostDetailsController) {
 	var states = [

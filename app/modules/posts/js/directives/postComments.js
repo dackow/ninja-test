@@ -18,7 +18,15 @@ var commentsDir = function(){
 			}
 		},
 		templateUrl:'modules/posts/views/comments.html'
-	}
-}
+	};
+};
 
-angular.module('PostMan.posts.directives').directive('postComments', commentsDir);
+ angular.module('PostMan.posts.directives').directive('postComments', commentsDir);
+
+
+// angular.module('PostMan.posts.directives').directive('postComments', function() {
+// 	return {
+// 		template: 'Name: {{customer.name}} Address: {{customer.address}}'
+// 	};
+// });
+
